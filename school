@@ -1,0 +1,43 @@
+// Create a new tab in Google Chrome
+chrome.tabs.create({
+  url: "https://example.com/school-registration-form.html"
+});
+
+// Create a school registration form
+const registrationForm = document.createElement("form");
+registrationForm.classList.add("school-registration-form");
+
+// Add form fields
+const nameInput = document.createElement("input");
+nameInput.type = "text";
+nameInput.placeholder = "Name";
+registrationForm.appendChild(nameInput);
+
+const emailInput = document.createElement("input");
+emailInput.type = "email";
+emailInput.placeholder = "Email";
+registrationForm.appendChild(emailInput);
+
+const passwordInput = document.createElement("input");
+passwordInput.type = "password";
+passwordInput.placeholder = "Password";
+registrationForm.appendChild(passwordInput);
+
+const submitButton = document.createElement("button");
+submitButton.type = "submit";
+submitButton.textContent = "Register";
+registrationForm.appendChild(submitButton);
+
+// Add the form to the page
+document.body.appendChild(registrationForm);
+
+// Handle form submission event
+registrationForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  // Here, you can add the code to send the form data to the server
+  console.log("Form data: ", {
+    name: nameInput.value,
+    email: emailInput.value,
+    password: passwordInput.getValue()
+  });
+});
